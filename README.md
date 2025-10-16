@@ -15,7 +15,7 @@
 
 ## UI Design
 
-Input array box, dropdown for algorithm, visualization panel.`
+Input array box, dropdown for algorithm, visualization panel.
 
 ## WOW Factor
 
