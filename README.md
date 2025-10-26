@@ -15,8 +15,12 @@
 
 ## UI Design
 
-Input array box, dropdown for algorithm, visualization panel.`
+Input array box, dropdown for algorithm, visualization panel.
 
 ## WOW Factor
 
 Bars moving with animations; speed slider + comparison counter.
+
+
+## Resources
+[Sorting.ppt](https://cse.iitkgp.ac.in/~pds/semester/2025a/slides/12-Sorting.pdf)
