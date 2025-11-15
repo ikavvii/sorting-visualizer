@@ -1,42 +1,118 @@
-# Sorting Visualizer
+# Sorting Algorithm Visualizer
 
-## Status: 
-I think it will be very hard to implement graphics libraries like SDL3.
-We better work with console for easier implementation. 
-I don't think we can finish on time, if we spend lot of time in graphics libs.
-We need to prep and modify slides, learn and study the algorithms, and implment the visualizations also.
+A comprehensive console-based C program that provides animated visualization of popular sorting algorithms with real-time statistics tracking.
 
-## Scope
+## Features
 
-**Implement** Bubble, Selection, Merge, Quick Sort with animations.
+- **4 Sorting Algorithms**: Bubble Sort, Selection Sort, Merge Sort, Quick Sort
+- **Visual Representation**: Bar chart visualization with color-coded elements
+- **Memory Layout View**: Shows array state in memory during sorting
+- **Interactive Controls**:
+  - Algorithm selection dropdown (↑↓ arrow keys)
+  - Speed slider (←→ arrow keys) - 10 levels
+  - Start/Pause functionality (SPACE)
+  - Reset to original array (R)
+  - Exit program (ESC)
+- **Real-time Counters**:
+  - Comparison counter
+  - Swap counter
+- **Flexible Input**:
+  - Manual array input
+  - Random array generation
+  - Configurable array size (1-50 elements)
 
-## Test Cases
+## Compilation
 
-- [5,3,8,1] → Bubble sort steps until [1,3,5,8]
-- [9,7,5,3] → Quick sort → [3,5,7,9]
-- [1,1,1] → [1,1,1]
-- Edge: Empty list → []
-- Edge: Single element [10] → [10]
-- Edge: Large dataset → Performance check
+### Windows (GCC/MinGW)
+```bash
+gcc sort_visualizer.c -o sort_visualizer.exe
+```
 
-## UI Design
+### Windows (MSVC)
+```bash
+cl sort_visualizer.c
+```
 
-Input array box, dropdown for algorithm, visualization panel.
+## Usage
 
-## WOW Factor
+1. Run the compiled executable:
+   ```bash
+   sort_visualizer.exe
+   ```
 
-Bars moving with animations; speed slider + comparison counter.
+2. Enter array size and choose input method:
+   - Manual input: Enter each element individually
+   - Random generation: Automatically generates random numbers
 
+3. Use the interactive interface:
+   - **↑/↓ Arrow Keys**: Switch between sorting algorithms
+   - **←/→ Arrow Keys**: Adjust animation speed
+   - **SPACE**: Start/pause sorting animation
+   - **R**: Reset array to original state
+   - **ESC**: Exit program
 
-## Resources
-[Sorting.ppt](https://cse.iitkgp.ac.in/~pds/semester/2025a/slides/12-Sorting.pdf)
+## Color Legend
 
-## Note
+- **Blue (██)**: Normal elements
+- **Red (██)**: Elements being compared or swapped
+- **Magenta (██)**: Pivot element (Quick Sort)
 
-* To compile sdl_sort_visualizer.c use,
->gcc sdl_sort_visualizer.c -o sdl_sort_visualizer.exe \
-  -I SDL3-3.2.24/x86_64-w64-mingw32/include \
-  -I SDL3_ttf-3.2.2/x86_64-w64-mingw32/include \
-  -L SDL3-3.2.24/x86_64-w64-mingw32/lib \
-  -L SDL3_ttf-3.2.2/x86_64-w64-mingw32/lib \
-  -lSDL3 -lSDL3_ttf -mwindows
+## Example
+
+```
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                     SORTING ALGORITHM VISUALIZER                             ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+ Algorithm: Bubble Sort (↑↓ to change)
+ Speed: █████░░░░░ (←→ to adjust)
+
+ Comparisons: 45  │  Swaps: 12
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                          VISUALIZATION PANEL                                 ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+ [Visual bar chart showing sorting progress]
+ 
+ Memory Layout: [5, 12, 8, 23, 15, ...]
+ 
+ Legend: █ Comparing/Swapping  █ Pivot  █ Normal
+ 
+ Controls: [SPACE] Start/Pause  [R] Reset  [ESC] Exit
+```
+
+## Algorithm Details
+
+### Bubble Sort
+- Time Complexity: O(n²)
+- Space Complexity: O(1)
+- Stable: Yes
+
+### Selection Sort
+- Time Complexity: O(n²)
+- Space Complexity: O(1)
+- Stable: No
+
+### Merge Sort
+- Time Complexity: O(n log n)
+- Space Complexity: O(n)
+- Stable: Yes
+
+### Quick Sort
+- Time Complexity: O(n log n) average, O(n²) worst
+- Space Complexity: O(log n)
+- Stable: No
+
+## Requirements
+
+- Windows OS (uses Windows API for console manipulation)
+- GCC/MinGW or MSVC compiler
+- Console with ANSI color support
+
+## Notes
+
+- Maximum array size is limited to 50 elements for optimal visualization
+- The program uses Windows-specific functions (windows.h, conio.h)
+- Speed levels range from 1 (slowest) to 10 (fastest)
+- Press SPACE during sorting to pause, and SPACE again to resume

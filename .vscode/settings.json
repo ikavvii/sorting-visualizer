@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "*.java": "java",
-        "*.css": "tailwindcss",
-        "sdl.h": "c"
-    }
-}
