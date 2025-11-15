@@ -116,3 +116,21 @@ cl sort_visualizer.c
 - The program uses Windows-specific functions (windows.h, conio.h)
 - Speed levels range from 1 (slowest) to 10 (fastest)
 - Press SPACE during sorting to pause, and SPACE again to resume
+
+## Analysis
+
+| Algorithm        | Time Complexity (Best/Average/Worst) | Space Complexity | Stability | Adaptive | # Comparisons (Worst) | # Swaps (Worst) | Application | When Best/Worst Case Occur | Short Description | Other Notes |
+|------------------|--------------------------------------|------------------|-----------|----------|----------------------|-----------------|-------------|--------------------------|-------------------|------------|
+| **Bubble Sort**  | Best: O(n)<br>Avg/Worst: O(n²)       | O(1)             | Yes       | Yes      | O(n²)               | O(n²)           | Educational, simple small lists | Best: Already sorted<br>Worst: Reverse sorted | Repeatedly swaps adjacent out-of-order elements ("bubbles" largest/smallest to end each pass) | Early exit possible; rarely used in practice beyond teaching |
+| **Selection Sort** | O(n²) for all cases                 | O(1)             | No        | No       | O(n²)               | O(n)             | Small static datasets | No adaptivity: always quadratic | Repeatedly selects minimum from unsorted portion, swaps with first unsorted position | Minimizes swaps; good for write-limited storage |
+| **Merge Sort**   | O(n log n) for all cases             | O(n)             | Yes       | No       | ~O(n log n)         | O(n) (copies)     | Large lists, linked lists, external sorting | Always splits & merges, so same for any input | Recursively splits list into halves, sorts, merges sorted halves | Good for linked lists and external sort; extra space needed |
+| **Quicksort**    | Best: O(n log n)<br>Avg: O(n log n)<br>Worst: O(n²) | O(log n) average (stack)<br>O(n) worst | Not usually | No       | O(n²) (worst)         | O(n²) (worst)                 | Fast in-practice, generic sort, in-memory | Best: Balanced splits<br>Worst: Poor pivot (already/reverse sorted, all same with naive pivot) | Picks a pivot, partitions into < and > pivot, recurses | Randomized or better pivot selection reduces risk of worst case |
+
+**Legend & Additional Notes:**
+- *Stability*: Whether equal keys retain initial order. Merge, Bubble are stable; Selection and most Quicksort implementations are not.
+- *Adaptive*: Takes advantage of existing order (Bubble and Insertion are adaptive, others are not). Bubble can run in O(n) if input sorted and early exit used.
+- *Space Complexity*: Merge Sort uses O(n) extra for merge arrays; Quicksort is usually in-place but can use O(n) in worst case due to stack.
+- *Comparisons/Swaps*: Selection makes fewer swaps than Bubble; Merge Sort moves elements but doesn't "swap".
+- *Applications*: Bubble and Selection are mainly for teaching, Merge Sort is strong for linked lists and disk-based sorting, Quicksort is a general-purpose, fast in-memory sort.
+- *Best/Worst Case*: Quicksort's worst case is rare with good pivots (median-of-three, random). Bubble’s best case only happens if already sorted and the algorithm includes early stopping.
+
